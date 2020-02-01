@@ -20,6 +20,7 @@ public class HIntObject : MonoBehaviour
 
     public void setHighlighted(bool highlighted)
     {
+        Debug.Log("Set highlight");
         if (!isActive && isHighlighted != highlighted)
         {
             isHighlighted = highlighted;

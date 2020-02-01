@@ -198,7 +198,7 @@ PrefabInstance:
     - target: {fileID: 5009999779499814813, guid: dd33632f686df4b4a8dd8e077e63266e,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5009999779499814813, guid: dd33632f686df4b4a8dd8e077e63266e,
         type: 3}
