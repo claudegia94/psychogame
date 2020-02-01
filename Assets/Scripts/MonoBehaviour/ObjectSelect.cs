@@ -38,7 +38,6 @@ public class ObjectSelect : MonoBehaviour
         while (true) {
             if (Physics.Raycast(this.transform.position, this.transform.forward, out RaycastHit hitInfo))
             {
-
                 var hint = hitInfo.transform.gameObject.GetComponent<HIntObject>();
                 if (hint != null)
                 {
