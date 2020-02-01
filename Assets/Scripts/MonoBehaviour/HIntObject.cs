@@ -6,6 +6,7 @@ public class HIntObject : MonoBehaviour
 {
     public string objectID;
     public string groupID;
+    public AudioClip objectClip = null;
     public bool Active { get { return isActive; } }
     private cakeslice.Outline outline;
     private bool isHighlighted = false; 

@@ -10,7 +10,7 @@ public class ObjectManager : MonoBehaviour
     // Dizionari che mappano gli object ID agli oggetti e i groupID agli objectID
     public Dictionary<string, HIntObject> mapObject;
     public Dictionary<string, List<string>> mapGroup;
-
+    
     
     // Classe che contiene 
     [System.Serializable]
@@ -21,17 +21,22 @@ public class ObjectManager : MonoBehaviour
     }
 
     public List<Trigger> triggers;
+    public AudioClip combinationClip = null;
 
     private bool isShowingText = false;
     private List<string> textToShow;
     private PopupBaloon baloon;
     private FirstPersonController controller;
+    private DialogueReader reader;
+    private AudioSource aSource;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = FindObjectOfType<FirstPersonController>();
         baloon = FindObjectOfType<PopupBaloon>();
+        aSource = GetComponent<AudioSource>();
+        reader = new DialogueReader();
         if (baloon != null)
         {
             baloon.transform.gameObject.SetActive(false);
@@ -78,8 +83,8 @@ public class ObjectManager : MonoBehaviour
                     mapObject[objID].setActive(false);
                 }
             }
-
-            StartShowingText("A", "B", "C");
+            PlayAudioClip(mapObject[objectId].objectClip);
+            StartShowingText("Room02_mente", mapObject[objectId].groupID, objectId);
         }
     }
 
@@ -97,21 +102,18 @@ public class ObjectManager : MonoBehaviour
             }
             if (triggered)
             {
-                StartShowingText("A", "B", "C");
+                PlayAudioClip(combinationClip);
+                StartShowingText("Room02_mente", "ObjectList06", trigger.dialogueTrigger);
                 triggers.Remove(trigger);
                 break;
             }
         }
     }
 
-    private List<string> ReadStrings(string room, string objectID, string groupID) {
-        return new List<string>() {"Testo 1","Testo 2" , "Testo 3"};
-    }
-
     private void StartShowingText(string room, string objectID, string groupID)
     {
         controller.enabled = false;
-        textToShow = ReadStrings(room, objectID, groupID);
+        textToShow = reader.ReadDialog(room, objectID, groupID);
         baloon.transform.gameObject.SetActive(true);
         this.isShowingText = true;
         DigestNextLine();
@@ -137,5 +139,13 @@ public class ObjectManager : MonoBehaviour
             textToShow.RemoveAt(0);
         }
 
+    }
+
+    private void PlayAudioClip(AudioClip clip)
+    {
+        if (clip != null) {
+            aSource.clip = clip;
+            aSource.Play();
+                }
     }
 }
