@@ -6,26 +6,36 @@ public class HIntObject : MonoBehaviour
 {
     public int objectID;
     public int groupID;
-    private Renderer rend;
-    private Color originalColor;
+    public bool Active { get { return isActive; } }
+    private cakeslice.Outline outline;
+    private bool isHighlighted = false; 
     private bool isActive = false;
     
 
     public void Start()
     {
-        rend = GetComponent<Renderer>();
-        originalColor = rend.material.color;
+        outline = GetComponent<cakeslice.Outline>();
+        outline.enabled = false;
+    }
+
+    public void setHighlighted(bool highlighted)
+    {
+        if (!isActive && isHighlighted != highlighted)
+        {
+            isHighlighted = highlighted;
+            outline.enabled = highlighted;
+            outline.color = 0;
+        }
     }
 
     public void setActive(bool active)
     {
-        Debug.Log("This " + objectID + " is setting " + active);
-        if (this.isActive != active)
+        if (isActive != active)
         {
-            this.isActive = active;
-            rend.material.color = (this.isActive) ? Color.red : this.originalColor;
-            Debug.Log(rend.material.color);
-            
+            isActive = active;
+            isHighlighted = false;
+            outline.enabled = active;
+            outline.color = 1;
         }
     }
 }
