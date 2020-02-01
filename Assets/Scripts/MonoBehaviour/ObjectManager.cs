@@ -21,7 +21,8 @@ public class ObjectManager : MonoBehaviour
     }
 
     public List<Trigger> triggers;
-    public AudioClip combinationClip = null;
+    public AudioClip combinationClip;
+    public AudioClip pencilClip;
 
     private bool isShowingText = false;
     private List<string> textToShow;
@@ -102,6 +103,12 @@ public class ObjectManager : MonoBehaviour
             }
             if (triggered)
             {
+                foreach (var id in trigger.triggerIDs)
+                {
+
+                    mapObject[id].setDefinitive();
+                }
+
                 PlayAudioClip(combinationClip);
                 StartShowingText("Room02_mente", "ObjectList06", trigger.dialogueTrigger);
                 triggers.Remove(trigger);
@@ -135,6 +142,7 @@ public class ObjectManager : MonoBehaviour
         }
         else
         {
+            PlayAudioClip(pencilClip);
             baloon.SetText(textToShow[0]);
             textToShow.RemoveAt(0);
         }

@@ -11,6 +11,7 @@ public class HIntObject : MonoBehaviour
     private cakeslice.Outline outline;
     private bool isHighlighted = false; 
     private bool isActive = false;
+    private bool isDefinitive = false;
     
 
     public void Start()
@@ -31,12 +32,20 @@ public class HIntObject : MonoBehaviour
 
     public void setActive(bool active)
     {
-        if (isActive != active)
+        if (!isDefinitive && isActive != active)
         {
             isActive = active;
             isHighlighted = false;
             outline.enabled = active;
             outline.color = 1;
         }
+    }
+
+    public void setDefinitive()
+    {
+        isActive = true;
+        isDefinitive = true;
+        outline.enabled = true;
+        outline.color = 2;
     }
 }

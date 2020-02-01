@@ -47,12 +47,13 @@ public class ObjectSelect : MonoBehaviour
                         lastHighlighted = hint;
                     }
                 }
+                else if (lastHighlighted != null)
+                {
+                    lastHighlighted.setHighlighted(false);
+                    lastHighlighted = null;
+                }
             }
-            else if (lastHighlighted != null)
-            {
-                lastHighlighted.setHighlighted(false);
-                lastHighlighted = null;
-            }
+
             yield return new WaitForSeconds(.1f);
         }
     }
