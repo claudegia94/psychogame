@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HIntObject : MonoBehaviour
 {
-    public int objectID;
-    public int groupID;
+    public string objectID;
+    public string groupID;
     public bool Active { get { return isActive; } }
     private cakeslice.Outline outline;
     private bool isHighlighted = false; 
