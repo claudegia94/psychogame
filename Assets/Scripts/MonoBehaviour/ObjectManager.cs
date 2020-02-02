@@ -119,6 +119,11 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
+    public bool CheckVictoryCondition()
+    {
+        return triggers.Count == 0;
+    }
+
     private void StartShowingText(string room, string objectID, string groupID)
     {
         controller.enabled = false;
