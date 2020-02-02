@@ -360,8 +360,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4fa303b55d6f9f1408cd5c68e8fff69b, type: 2}
-  m_sharedMaterial: {fileID: 6800071944312616442, guid: 4fa303b55d6f9f1408cd5c68e8fff69b,
+  m_fontAsset: {fileID: 11400000, guid: 2c0212d226dc80c4b964fd2b773a5eb5, type: 2}
+  m_sharedMaterial: {fileID: -177610978645105283, guid: 2c0212d226dc80c4b964fd2b773a5eb5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -739,8 +739,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4fa303b55d6f9f1408cd5c68e8fff69b, type: 2}
-  m_sharedMaterial: {fileID: 6800071944312616442, guid: 4fa303b55d6f9f1408cd5c68e8fff69b,
+  m_fontAsset: {fileID: 11400000, guid: 2c0212d226dc80c4b964fd2b773a5eb5, type: 2}
+  m_sharedMaterial: {fileID: -177610978645105283, guid: 2c0212d226dc80c4b964fd2b773a5eb5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -895,8 +895,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: To Repair a Mind
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4fa303b55d6f9f1408cd5c68e8fff69b, type: 2}
-  m_sharedMaterial: {fileID: 6800071944312616442, guid: 4fa303b55d6f9f1408cd5c68e8fff69b,
+  m_fontAsset: {fileID: 11400000, guid: 2c0212d226dc80c4b964fd2b773a5eb5, type: 2}
+  m_sharedMaterial: {fileID: -177610978645105283, guid: 2c0212d226dc80c4b964fd2b773a5eb5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
