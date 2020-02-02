@@ -1,1 +1,2 @@
-Paz: Non funziona.
+Paz: È accesa.
+Paz: Tuttavia, non riesco a fare luce.
