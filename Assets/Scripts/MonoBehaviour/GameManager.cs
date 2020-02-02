@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     {
         if(objectManager.CheckVictoryCondition() && !isGameEnded)
         {
-            endGameGUI.FadeIn();
             isGameEnded = true;
+            endGameGUI.FadeIn();
         }
     }
 }

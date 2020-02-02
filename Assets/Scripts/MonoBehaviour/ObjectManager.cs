@@ -30,6 +30,7 @@ public class ObjectManager : MonoBehaviour
     private FirstPersonController controller;
     private DialogueReader reader;
     private AudioSource aSource;
+    private bool endCondition = false;
 
     // Start is called before the first frame update
     void Start()
@@ -121,7 +122,7 @@ public class ObjectManager : MonoBehaviour
 
     public bool CheckVictoryCondition()
     {
-        return triggers.Count == 0;
+        return endCondition;
     }
 
     private void StartShowingText(string room, string objectID, string groupID)
@@ -146,6 +147,11 @@ public class ObjectManager : MonoBehaviour
         {
             StopShowingText();
             CheckTriggered();
+
+            if(triggers.Count == 0)
+            {
+                endCondition = true;
+            }
         }
         else
         {
