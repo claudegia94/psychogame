@@ -40,7 +40,6 @@ public class EndGameGUIController : MonoBehaviour
 
         do
         {
-            Debug.Log("Fade alpha " + c.a);
             c.a += increment;
             panel.color = c;
         
