@@ -10,8 +10,8 @@ public class ObjectManager : MonoBehaviour
     // Dizionari che mappano gli object ID agli oggetti e i groupID agli objectID
     public Dictionary<string, HIntObject> mapObject;
     public Dictionary<string, List<string>> mapGroup;
-    
-    
+
+
     // Classe che contiene 
     [System.Serializable]
     public class Trigger
@@ -22,7 +22,7 @@ public class ObjectManager : MonoBehaviour
 
     public List<Trigger> triggers;
     public AudioClip combinationClip;
-    public AudioClip pencilClip;
+    public AudioClip[] pencilClip;
 
     private bool isShowingText = false;
     private List<string> textToShow;
@@ -50,7 +50,8 @@ public class ObjectManager : MonoBehaviour
 
     private void Update()
     {
-        if (isShowingText && Input.GetKeyUp(KeyCode.Space)) {
+        if (isShowingText && Input.GetKeyUp(KeyCode.Space))
+        {
             DigestNextLine();
         }
     }
@@ -91,13 +92,14 @@ public class ObjectManager : MonoBehaviour
 
     public void CheckTriggered()
     {
-        foreach(var trigger in triggers)
+        foreach (var trigger in triggers)
         {
             bool triggered = true;
-            foreach(var id in trigger.triggerIDs)
+            foreach (var id in trigger.triggerIDs)
             {
-                
-                if (!mapObject[id].Active) {
+
+                if (!mapObject[id].Active)
+                {
                     triggered = false;
                 }
             }
@@ -142,7 +144,7 @@ public class ObjectManager : MonoBehaviour
         }
         else
         {
-            PlayAudioClip(pencilClip);
+            PlayAudioClip(pencilClip[Random.Range(0,3)]);
             baloon.SetText(textToShow[0]);
             textToShow.RemoveAt(0);
         }
@@ -151,9 +153,10 @@ public class ObjectManager : MonoBehaviour
 
     private void PlayAudioClip(AudioClip clip)
     {
-        if (clip != null) {
+        if (clip != null)
+        {
             aSource.clip = clip;
             aSource.Play();
-                }
+        }
     }
 }
